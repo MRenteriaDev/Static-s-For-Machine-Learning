@@ -1,0 +1,9 @@
+fetiliers = read.csv('../Data/fetilizers.csv')
+r = c(t(as.matrix(fetiliers)))
+f = c("fertilizier1","fertilizier2","fertilizier3")
+k =3
+n=6
+tm = gl(k,1,n*k,factor(f))
+blk = gl(n,k,k*n)
+av = aov(r ~ tm + blk) 
+smry = summary(av)
